@@ -4,7 +4,7 @@ import numpy as np
 
 # Load the pre-trained face detector and facial landmark predictor
 detector = dlib.get_frontal_face_detector()
-predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
+predictor = dlib.shape_predictor("Data/shape_predictor_68_face_landmarks.dat")
 
 # Initialize variables for eye detection
 eye_aspect_ratio_threshold = 0.3
