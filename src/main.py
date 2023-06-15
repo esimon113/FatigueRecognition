@@ -1,16 +1,11 @@
-import speech_recognition as sr
+from visual_fatigue_recognition import VisualFatigueDetector
+from audio_fatigue_recognition import AudioFatigueDetector
 
 
-r = sr.Recognizer()
-
-with sr.Microphone() as src:
-    print("Say something!")
-    audio = r.listen(src)
+vfd = VisualFatigueDetector(0.3, 10)
+afd = AudioFatigueDetector()
 
 
-try:
-    print(f"You (supposedly) said { r.recognize_sphinx(audio) }")
-except sr.UnknownValueError:
-    print("Audio couldn't be understood")
-except sr.RequestError as e:
-    print(f"Error: { e }")
+
+vfd.run()
+
