@@ -31,6 +31,16 @@ class VisualFatigueDetector:
         ratio = ((vertical1 + vertical2) / 2) / horizontal
 
         return ratio
+    
+
+    def calculate_mouth_aspect_ratio(self, mouth_landmarks):
+        X = calculate_euclidian_distance(mouth_landmarks[0], mouth_landmarks[6])
+        Y1 = calculate_euclidian_distance(mouth_landmarks[2], mouth_landmarks[10])
+        Y2 = calculate_euclidian_distance(mouth_landmarks[4], mouth_landmarks[8])
+
+        ratio = (Y1 + Y2) / 2 / X
+
+        return ratio
         
 
 
