@@ -1,11 +1,9 @@
-from visual_fatigue_recognition import VisualFatigueDetector
-from audio_fatigue_recognition import AudioFatigueDetector
+from fatigue_recognition_system import FatigueRecognitionSystem
 
 
-vfd = VisualFatigueDetector(0.3, 10)
-afd = AudioFatigueDetector()
+model_path = "/Users/simon/GitHub/FatigueRecognition/Data/models/other_96_accuracy.h5"
 
 
-
-vfd.run()
+frs = FatigueRecognitionSystem(model_path)
+frs.run()
 
