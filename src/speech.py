@@ -4,7 +4,7 @@ import pygame
 import time
 
 # Initialize the speech recognizer
-r = sr.Recognizer()
+recognizer = sr.Recognizer()
 
 # Initialize the text-to-speech engine
 pygame.mixer.init()
@@ -13,16 +13,17 @@ pygame.mixer.init()
 def detect_fatigue():
     with sr.Microphone() as source:
         print("Listening for speech...")
-        audio = r.listen(source)
+        audio = recognizer.listen(source)
 
         try:
             print("Processing speech...")
             # Use the speech recognizer to convert speech to text
-            text = r.recognize_google(audio)
+            text = recognizer.recognize_google(audio)
             print("Speech detected:", text)
 
             # Check for signs of fatigue in the speech
-            if "tired" in text or "sleepy" in text or "exhausted" in text:
+#            if "tired" in text or "sleepy" in text or "exhausted" in text:
+            if text in ["tired", "sleepy", "exhausted"]:
                 print("Fatigue detected!")
 
                 # Convert the text to speech and play it
